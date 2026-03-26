@@ -12,19 +12,22 @@
     body {
       min-height: 100vh;
       font-family: 'Nunito', sans-serif;
-      background: #fff8e1;
       overflow-x: hidden;
       position: relative;
+      /* ── IMAGEN DE FONDO ── */
+      background-image: url('abeja.jpg');
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
     }
 
-    /* ── Patrón panal ── */
+    /* ── Overlay semitransparente para que el texto sea legible ── */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
-      background-image:
-        radial-gradient(circle at 50% 50%, rgba(255,215,0,0.18) 0%, transparent 70%),
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50V18L28 2l28 16v32z' fill='none' stroke='%23FFD700' stroke-width='1.5' stroke-opacity='.35'/%3E%3Cpath d='M28 100L0 84V52l28-16 28 16v32z' fill='none' stroke='%23FFD700' stroke-width='1.5' stroke-opacity='.35'/%3E%3C/svg%3E");
+      background: rgba(255, 248, 200, 0.55);
       pointer-events: none;
       z-index: 0;
     }
@@ -55,10 +58,10 @@
 
     /* ── Header ── */
     .header {
-      background: linear-gradient(135deg, #FFD700 0%, #FFA500 60%, #FF8C00 100%);
+      background: linear-gradient(135deg, rgba(255,215,0,0.92) 0%, rgba(255,165,0,0.95) 60%, rgba(255,140,0,0.95) 100%);
       border-radius: 0 0 50% 50% / 0 0 30px 30px;
       padding: 36px 20px 48px;
-      box-shadow: 0 8px 32px rgba(255,165,0,.45);
+      box-shadow: 0 8px 32px rgba(255,165,0,.55);
       position: relative;
       overflow: hidden;
     }
@@ -66,7 +69,7 @@
       content: '';
       position: absolute;
       bottom: -1px; left: 0; right: 0; height: 30px;
-      background: #fff8e1;
+      background: transparent;
       border-radius: 50% 50% 0 0;
     }
     .header .bees-row {
@@ -99,10 +102,10 @@
 
     /* ── Imagen hero ── */
     .hero-img {
-      width: 200px;
-      filter: drop-shadow(0 8px 18px rgba(255,165,0,.5));
+      width: 220px;
+      filter: drop-shadow(0 8px 24px rgba(255,165,0,.7));
       animation: beeFloat 3s ease-in-out infinite;
-      margin: -20px auto 0;
+      margin: 16px auto 0;
       display: block;
     }
     @keyframes beeFloat {
@@ -112,12 +115,13 @@
 
     /* ── Nombre ── */
     .name-box {
-      background: linear-gradient(135deg, #FFD700, #FFA500);
+      background: linear-gradient(135deg, rgba(255,215,0,0.92), rgba(255,165,0,0.92));
       border-radius: 20px;
       margin: 18px 16px 0;
       padding: 18px 12px;
-      box-shadow: 0 6px 24px rgba(255,165,0,.4);
-      border: 3px solid #fff;
+      box-shadow: 0 6px 24px rgba(255,165,0,.5);
+      border: 3px solid rgba(255,255,255,0.8);
+      backdrop-filter: blur(4px);
     }
     .name-box .label {
       font-family: 'Fredoka One', cursive;
@@ -155,15 +159,16 @@
       margin: 20px 16px 0;
     }
     .detail-card {
-      background: #fff;
+      background: rgba(255,255,255,0.88);
       border-radius: 18px;
       padding: 14px 18px;
       display: flex;
       align-items: center;
       gap: 14px;
-      box-shadow: 0 4px 16px rgba(255,165,0,.25);
+      box-shadow: 0 4px 16px rgba(255,165,0,.3);
       border-left: 5px solid #FFD700;
       transition: transform .2s;
+      backdrop-filter: blur(4px);
     }
     .detail-card:hover { transform: translateX(4px) scale(1.02); }
     .detail-card .icon {
@@ -194,10 +199,11 @@
     /* ── Contador regresivo ── */
     .countdown-section {
       margin: 24px 16px 0;
-      background: linear-gradient(135deg, #1a1a1a, #3d3d00);
+      background: linear-gradient(135deg, rgba(26,26,26,0.9), rgba(61,61,0,0.9));
       border-radius: 24px;
       padding: 22px 16px;
-      box-shadow: 0 8px 32px rgba(0,0,0,.25);
+      box-shadow: 0 8px 32px rgba(0,0,0,.35);
+      backdrop-filter: blur(6px);
     }
     .countdown-section h3 {
       font-family: 'Fredoka One', cursive;
@@ -247,9 +253,10 @@
     }
     .wa-section p {
       font-weight: 700;
-      color: #5a2d00;
+      color: #3d1c00;
       font-size: .95rem;
       margin-bottom: 12px;
+      text-shadow: 0 1px 3px rgba(255,255,255,0.8);
     }
     .wa-btn {
       display: inline-flex;
@@ -273,12 +280,13 @@
     .footer {
       margin: 30px 16px 0;
       padding: 18px;
-      background: linear-gradient(135deg, #FFD700, #FFA500);
+      background: linear-gradient(135deg, rgba(255,215,0,0.92), rgba(255,165,0,0.92));
       border-radius: 20px;
       font-family: 'Pacifico', cursive;
       font-size: 1rem;
       color: #1a1a1a;
-      box-shadow: 0 4px 16px rgba(255,165,0,.35);
+      box-shadow: 0 4px 16px rgba(255,165,0,.4);
+      backdrop-filter: blur(4px);
     }
 
     /* ── Responsive ── */
@@ -306,12 +314,12 @@
   <!-- IMAGEN HERO -->
   <img
     class="hero-img"
-    src="abeja.png"
+    src="abeja.jpg"
     onerror="this.style.display='none'; document.getElementById('bee-emoji').style.display='block';"
     alt="Abejita Annie"
   />
   <!-- Fallback emoji si no carga la imagen -->
-  <div id="bee-emoji" style="display:none; font-size:9rem; margin-top:-10px; animation: beeFloat 3s ease-in-out infinite;">🐝<br><span style="font-family:'Fredoka One',cursive;font-size:3rem;color:#FFD700;text-shadow:2px 2px 0 #1a1a1a;">1</span></div>
+  <div id="bee-emoji" style="display:none; font-size:9rem; margin-top:16px; animation: beeFloat 3s ease-in-out infinite;">🐝<br><span style="font-family:'Fredoka One',cursive;font-size:3rem;color:#FFD700;text-shadow:2px 2px 0 #1a1a1a;">1</span></div>
 
   <!-- NOMBRE Y TEXTO -->
   <div class="name-box">
@@ -386,8 +394,7 @@
 
 <script>
   // ─── WhatsApp ───────────────────────────────────────────────
-  // ✏️ REEMPLAZA el número con el tuyo (formato internacional sin +):
-  const WA_NUMBER = "51947200787"; // ← cambia esto por tu número
+  const WA_NUMBER = "51947200787";
   const WA_MSG = encodeURIComponent(
     "¡Hola! 🐝 Confirmo mi asistencia al 1er añito de Annie Valentina 🎂🐝💛"
   );
@@ -395,7 +402,6 @@
     `https://wa.me/${WA_NUMBER}?text=${WA_MSG}`;
 
   // ─── Cuenta regresiva ────────────────────────────────────────
-  // Fecha del evento: 4 de Abril 2026 a las 18:30 hora Perú (UTC-5)
   const eventDate = new Date("2026-04-04T18:30:00-05:00");
 
   function updateCountdown() {
