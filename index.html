@@ -14,7 +14,6 @@
       font-family: 'Nunito', sans-serif;
       overflow-x: hidden;
       position: relative;
-      /* ── IMAGEN DE FONDO ── */
       background-image: url('abeja.jpg');
       background-size: cover;
       background-position: center center;
@@ -22,7 +21,6 @@
       background-repeat: no-repeat;
     }
 
-    /* ── Overlay semitransparente para que el texto sea legible ── */
     body::before {
       content: '';
       position: fixed;
@@ -32,7 +30,6 @@
       z-index: 0;
     }
 
-    /* ── Partículas flotantes ── */
     .particle {
       position: fixed;
       pointer-events: none;
@@ -43,10 +40,9 @@
     }
     @keyframes floatUp {
       0%   { transform: translateY(110vh) rotate(0deg); opacity: .9; }
-      100% { transform: translateY(-10vh)  rotate(360deg); opacity: 0; }
+      100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
     }
 
-    /* ── Contenedor principal ── */
     .card {
       position: relative;
       z-index: 2;
@@ -58,19 +54,12 @@
 
     /* ── Header ── */
     .header {
-      background: linear-gradient(135deg, rgba(255,215,0,0.92) 0%, rgba(255,165,0,0.95) 60%, rgba(255,140,0,0.95) 100%);
-      border-radius: 0 0 50% 50% / 0 0 30px 30px;
-      padding: 36px 20px 48px;
+      background: linear-gradient(135deg, rgba(255,215,0,0.95) 0%, rgba(255,165,0,0.97) 60%, rgba(255,140,0,0.97) 100%);
+      border-radius: 0 0 50% 50% / 0 0 40px 40px;
+      padding: 28px 20px 36px;
       box-shadow: 0 8px 32px rgba(255,165,0,.55);
       position: relative;
       overflow: hidden;
-    }
-    .header::after {
-      content: '';
-      position: absolute;
-      bottom: -1px; left: 0; right: 0; height: 30px;
-      background: transparent;
-      border-radius: 50% 50% 0 0;
     }
     .header .bees-row {
       font-size: 1.8rem;
@@ -82,8 +71,6 @@
     .header h1 {
       font-family: 'Pacifico', cursive;
       font-size: 2.6rem;
-      color: #1a1a1a;
-      text-shadow: 3px 3px 0 #fff, -1px -1px 0 #FFA500;
       margin: 6px 0 4px;
       animation: shimmer 2.5s infinite;
       background: linear-gradient(90deg, #1a1a1a 0%, #7a4500 40%, #1a1a1a 60%);
@@ -100,24 +87,49 @@
       letter-spacing: 2px;
     }
 
-    /* ── Imagen hero ── */
-    .hero-img {
-      width: 220px;
-      filter: drop-shadow(0 8px 24px rgba(255,165,0,.7));
-      animation: beeFloat 3s ease-in-out infinite;
-      margin: 16px auto 0;
-      display: block;
+    /* ── Número 1 destacado ── */
+    .numero-uno-wrap {
+      position: relative;
+      margin: -10px auto 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
     }
-    @keyframes beeFloat {
-      0%,100%{ transform: translateY(0) rotate(-2deg); }
-      50%    { transform: translateY(-14px) rotate(2deg); }
+    .numero-uno {
+      font-family: 'Fredoka One', cursive;
+      font-size: 10rem;
+      line-height: 1;
+      color: #FFD700;
+      text-shadow:
+        0 0 30px rgba(255,215,0,0.9),
+        0 0 60px rgba(255,165,0,0.7),
+        4px 4px 0 #b8600a,
+        8px 8px 0 rgba(100,50,0,0.3);
+      animation: pulsoUno 2s ease-in-out infinite;
+      filter: drop-shadow(0 6px 18px rgba(255,140,0,0.8));
+      position: relative;
+      z-index: 3;
+    }
+    @keyframes pulsoUno {
+      0%, 100% { transform: scale(1) rotate(-3deg); }
+      50%       { transform: scale(1.08) rotate(3deg); }
+    }
+    .anito-label {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.4rem;
+      color: #fff;
+      text-shadow: 2px 2px 0 #b8600a, 0 0 12px rgba(255,165,0,0.8);
+      margin-bottom: 1.6rem;
+      margin-left: -8px;
+      line-height: 1.2;
     }
 
     /* ── Nombre ── */
     .name-box {
-      background: linear-gradient(135deg, rgba(255,215,0,0.92), rgba(255,165,0,0.92));
+      background: linear-gradient(135deg, rgba(255,215,0,0.93), rgba(255,165,0,0.93));
       border-radius: 20px;
-      margin: 18px 16px 0;
+      margin: 14px 16px 0;
       padding: 18px 12px;
       box-shadow: 0 6px 24px rgba(255,165,0,.5);
       border: 3px solid rgba(255,255,255,0.8);
@@ -171,10 +183,7 @@
       backdrop-filter: blur(4px);
     }
     .detail-card:hover { transform: translateX(4px) scale(1.02); }
-    .detail-card .icon {
-      font-size: 2rem;
-      flex-shrink: 0;
-    }
+    .detail-card .icon { font-size: 2rem; flex-shrink: 0; }
     .detail-card .info { text-align: left; }
     .detail-card .info .dtitle {
       font-family: 'Fredoka One', cursive;
@@ -196,10 +205,10 @@
     }
     .detail-card .info a:hover { text-decoration: underline; }
 
-    /* ── Contador regresivo ── */
+    /* ── Cuenta regresiva ── */
     .countdown-section {
       margin: 24px 16px 0;
-      background: linear-gradient(135deg, rgba(26,26,26,0.9), rgba(61,61,0,0.9));
+      background: linear-gradient(135deg, rgba(26,26,26,0.92), rgba(61,61,0,0.92));
       border-radius: 24px;
       padding: 22px 16px;
       box-shadow: 0 8px 32px rgba(0,0,0,.35);
@@ -247,10 +256,8 @@
       animation: bounce 1s infinite alternate;
     }
 
-    /* ── Botón WhatsApp ── */
-    .wa-section {
-      margin: 24px 16px 0;
-    }
+    /* ── WhatsApp ── */
+    .wa-section { margin: 24px 16px 0; }
     .wa-section p {
       font-weight: 700;
       color: #3d1c00;
@@ -280,7 +287,7 @@
     .footer {
       margin: 30px 16px 0;
       padding: 18px;
-      background: linear-gradient(135deg, rgba(255,215,0,0.92), rgba(255,165,0,0.92));
+      background: linear-gradient(135deg, rgba(255,215,0,0.93), rgba(255,165,0,0.93));
       border-radius: 20px;
       font-family: 'Pacifico', cursive;
       font-size: 1rem;
@@ -289,17 +296,16 @@
       backdrop-filter: blur(4px);
     }
 
-    /* ── Responsive ── */
     @media (max-width: 360px) {
       .header h1 { font-size: 2rem; }
       .name-box h2 { font-size: 1.25rem; }
       .cd-box .cd-num { font-size: 1.7rem; }
+      .numero-uno { font-size: 7rem; }
     }
   </style>
 </head>
 <body>
 
-<!-- Partículas flotantes -->
 <div id="particles"></div>
 
 <div class="card">
@@ -311,15 +317,11 @@
     <div class="subtitle-top">✨ Una celebración muy especial ✨</div>
   </div>
 
-  <!-- IMAGEN HERO (la misma imagen abeja.jpg usada también como decoración) -->
-  <img
-    class="hero-img"
-    src="abeja.jpg"
-    onerror="this.style.display='none'; document.getElementById('bee-emoji').style.display='block';"
-    alt="Abejita Annie"
-  />
-  <!-- Fallback emoji si no carga la imagen -->
-  <div id="bee-emoji" style="display:none; font-size:9rem; margin-top:16px; animation: beeFloat 3s ease-in-out infinite;">🐝<br><span style="font-family:'Fredoka One',cursive;font-size:3rem;color:#FFD700;text-shadow:2px 2px 0 #1a1a1a;">1</span></div>
+  <!-- NÚMERO 1 DESTACADO -->
+  <div class="numero-uno-wrap">
+    <span class="numero-uno">1</span>
+    <span class="anito-label">er<br>Añito 🎂</span>
+  </div>
 
   <!-- NOMBRE Y TEXTO -->
   <div class="name-box">
@@ -373,13 +375,7 @@
   <!-- WHATSAPP -->
   <div class="wa-section">
     <p>🎀 ¡Confirma tu asistencia y no te pierdas la fiesta! 🎀</p>
-    <a
-      class="wa-btn"
-      id="wa-link"
-      href="#"
-      target="_blank"
-      rel="noopener"
-    >
+    <a class="wa-btn" id="wa-link" href="#" target="_blank" rel="noopener">
       <i class="fab fa-whatsapp"></i> ¡CONFIRMAR ASISTENCIA!
     </a>
   </div>
@@ -393,7 +389,6 @@
 </div>
 
 <script>
-  // ─── WhatsApp ───────────────────────────────────────────────
   const WA_NUMBER = "51947200787";
   const WA_MSG = encodeURIComponent(
     "¡Hola! 🐝 Confirmo mi asistencia al 1er añito de Annie Valentina 🎂🐝💛"
@@ -401,24 +396,20 @@
   document.getElementById("wa-link").href =
     `https://wa.me/${WA_NUMBER}?text=${WA_MSG}`;
 
-  // ─── Cuenta regresiva ────────────────────────────────────────
   const eventDate = new Date("2026-04-04T18:30:00-05:00");
 
   function updateCountdown() {
     const now  = new Date();
     const diff = eventDate - now;
-
     if (diff <= 0) {
       document.getElementById("countdown-display").innerHTML =
         `<p class="cd-finished">🎉🐝 ¡Ya es la hora de la fiesta! 🐝🎉</p>`;
       return;
     }
-
     const days  = Math.floor(diff / (1000 * 60 * 60 * 24));
     const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const mins  = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
     const secs  = Math.floor((diff % (1000 * 60)) / 1000);
-
     document.getElementById("cd-days").textContent  = String(days).padStart(2,"0");
     document.getElementById("cd-hours").textContent = String(hours).padStart(2,"0");
     document.getElementById("cd-mins").textContent  = String(mins).padStart(2,"0");
@@ -428,10 +419,8 @@
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
-  // ─── Partículas flotantes ─────────────────────────────────────
   const symbols = ["🐝","💛","🍯","⭐","✨","🌸","🎉","🎈"];
   const container = document.getElementById("particles");
-
   for (let i = 0; i < 22; i++) {
     const el = document.createElement("div");
     el.className = "particle";
